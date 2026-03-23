@@ -127,21 +127,26 @@
     }
 
     .brand-mark {
-      width: 54px;
-      height: 54px;
+      width: 58px;
+      height: 58px;
       border-radius: 18px;
       overflow: hidden;
       flex-shrink: 0;
-      background: linear-gradient(135deg, #0d6f31, #27ca62);
+      background: #ffffff;
       box-shadow:
-        0 14px 30px rgba(34, 197, 94, 0.22),
-        0 0 0 1px rgba(255,255,255,0.08) inset;
+        0 12px 26px rgba(0, 0, 0, 0.18),
+        0 0 0 1px rgba(255,255,255,0.10);
+      padding: 6px;
+      display: grid;
+      place-items: center;
     }
 
     .brand-mark img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background: white;
+      border-radius: 12px;
     }
 
     .brand-text strong {
@@ -448,8 +453,10 @@
       overflow: hidden;
       border-radius: 36px;
       background:
-        linear-gradient(160deg, rgba(9, 15, 11, 0.26), rgba(9, 15, 11, 0.64)),
-        url("flyer-5.jpg") center/cover no-repeat;
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,0.22), transparent 18%),
+        radial-gradient(circle at 18% 24%, rgba(103,244,156,0.18), transparent 18%),
+        linear-gradient(140deg, rgba(9, 15, 11, 0.18), rgba(9, 15, 11, 0.60)),
+        linear-gradient(135deg, #355a43 0%, #6ca07b 40%, #dfe8e1 100%);
       box-shadow:
         0 34px 90px rgba(7, 12, 9, 0.22),
         0 0 0 1px rgba(255,255,255,0.45) inset;
@@ -460,8 +467,108 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(135deg, rgba(37, 211, 102, 0.16), transparent 34%),
-        linear-gradient(180deg, transparent 15%, rgba(0,0,0,0.24) 100%);
+        linear-gradient(135deg, rgba(37, 211, 102, 0.14), transparent 36%),
+        linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.18) 100%);
+      pointer-events: none;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: 88px;
+      width: 78%;
+      height: 58%;
+      border-radius: 30px 30px 0 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+        linear-gradient(135deg, #e8efe9 0%, #d8e2da 45%, #b6c7b8 100%);
+      box-shadow:
+        -18px 20px 40px rgba(0,0,0,0.16),
+        inset 0 0 0 1px rgba(255,255,255,0.28);
+      transform: perspective(1100px) rotateY(-18deg) rotateX(1deg);
+      transform-origin: right center;
+      opacity: 0.95;
+    }
+
+    .hero-visual-badge {
+      position: absolute;
+      top: 34px;
+      left: 34px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.20);
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 800;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero-shape {
+      position: absolute;
+      left: 34px;
+      top: 120px;
+      width: 180px;
+      height: 180px;
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.16);
+      z-index: 1;
+    }
+
+    .hero-shape::before,
+    .hero-shape::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.9);
+      border-radius: 999px;
+    }
+
+    .hero-shape::before {
+      width: 94px;
+      height: 14px;
+      left: 24px;
+      top: 44px;
+    }
+
+    .hero-shape::after {
+      width: 120px;
+      height: 14px;
+      left: 24px;
+      top: 74px;
+      opacity: 0.78;
+    }
+
+    .hero-mini-card {
+      position: absolute;
+      right: 34px;
+      top: 78px;
+      width: 210px;
+      padding: 18px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,248,245,0.90));
+      color: #16231a;
+      box-shadow: 0 26px 50px rgba(0,0,0,0.15);
+      z-index: 3;
+    }
+
+    .hero-mini-card strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+
+    .hero-mini-card span {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #526057;
     }
 
     .glass-panel {
@@ -479,6 +586,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       color: white;
+      z-index: 4;
     }
 
     .glass-pills {
@@ -747,24 +855,24 @@
 
     .highlights-wrap {
       display: grid;
-      gap: 24px;
+      gap: 28px;
     }
 
     .highlight-row {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 24px;
     }
 
     .gallery-card {
       position: relative;
-      padding: 12px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.10);
+      padding: 18px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
       box-shadow:
-        0 26px 60px rgba(0,0,0,0.24),
-        inset 0 1px 0 rgba(255,255,255,0.06);
+        0 28px 65px rgba(0,0,0,0.28),
+        inset 0 1px 0 rgba(255,255,255,0.08);
       overflow: hidden;
     }
 
@@ -778,9 +886,11 @@
 
     .gallery-card img {
       width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 20px;
+      height: 420px;
+      object-fit: contain;
+      background: #f5f7f5;
+      border-radius: 22px;
+      padding: 10px;
       box-shadow: 0 18px 40px rgba(0,0,0,0.22);
     }
 
@@ -955,12 +1065,27 @@
       }
 
       .hero-card {
-        min-height: 500px;
+        min-height: 530px;
+      }
+
+      .hero-card::after {
+        width: 82%;
+        height: 46%;
+        top: 102px;
+      }
+
+      .hero-mini-card {
+        right: 24px;
+        top: 72px;
       }
 
       .about-photo-circle {
         width: 240px;
         height: 240px;
+      }
+
+      .gallery-card img {
+        height: 380px;
       }
     }
 
@@ -991,6 +1116,27 @@
       .about-photo-circle {
         width: 210px;
         height: 210px;
+      }
+
+      .brand-mark {
+        width: 54px;
+        height: 54px;
+      }
+
+      .hero-shape {
+        width: 130px;
+        height: 130px;
+        top: 120px;
+        left: 24px;
+      }
+
+      .hero-mini-card {
+        width: 170px;
+        padding: 14px;
+      }
+
+      .gallery-card img {
+        height: 340px;
       }
     }
   </style>
@@ -1072,6 +1218,14 @@
 
           <div class="hero-visual">
             <div class="hero-card">
+              <div class="hero-visual-badge">Premium Property Access</div>
+              <div class="hero-shape"></div>
+
+              <div class="hero-mini-card">
+                <strong>Trusted property support</strong>
+                <span>Clear communication, guided inquiries, and dependable service for land buyers and investors.</span>
+              </div>
+
               <div class="glass-panel">
                 <div class="glass-pills">
                   <span class="glass-pill">Trusted Land Access</span>
@@ -1459,7 +1613,7 @@
 
           <article class="card">
             <h3>Send Us an Inquiry</h3>
-            <form action="https://formspree.io/f/mvzwzbqk" method="POST">
+            <form action="https://formspree.io/f/myknrjyd" method="POST">
               <input type="hidden" name="_subject" value="New inquiry from EXCEL-DOM website" />
 
               <div class="form-grid">
