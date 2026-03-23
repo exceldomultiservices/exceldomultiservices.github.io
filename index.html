@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXCEL-DOM MULTISERVICES LIMITED</title>
+  <meta
+    name="description"
+    content="EXCEL-DOM MULTISERVICES LIMITED offers trusted land real estate and construction support with a premium, professional, and client-focused business presentation."
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+    :root {
+      --black: #101211;
+      --black-2: #171a18;
+      --white: #ffffff;
+      --off-white: #f7faf7;
+      --soft-white: #eef4ef;
+      --green: #22c55e;
+      --green-2: #17a34a;
+      --green-3: #0f7f3b;
+      --green-soft: #e8f8ee;
+      --gold: #d2a33c;
+      --text: #111412;
+      --muted: #626b65;
+      --line: rgba(17, 20, 18, 0.08);
+
+      --shadow-sm: 0 12px 30px rgba(8, 12, 10, 0.06);
+      --shadow-md: 0 20px 50px rgba(8, 12, 10, 0.10);
+      --shadow-lg: 0 30px 80px rgba(8, 12, 10, 0.16);
+      --shadow-dark: 0 28px 70px rgba(0, 0, 0, 0.34);
+      --shadow-green: 0 18px 45px rgba(34, 197, 94, 0.22);
+
+      --radius-xl: 34px;
+      --radius-lg: 28px;
+      --radius-md: 22px;
+      --radius-sm: 16px;
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+
+    .section-white {
+      background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.05), transparent 24%),
+        radial-gradient(circle at top right, rgba(210, 163, 60, 0.05), transparent 18%),
+        linear-gradient(180deg, #ffffff 0%, #f7faf7 100%);
+    }
+
+    .section-green {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.10), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(255,255,255,0.10), transparent 20%),
+        linear-gradient(135deg, #188542 0%, #22b759 50%, #58d688 100%);
+      color: white;
+    }
+
+    .section-dark {
+      background:
+        radial-gradient(circle at top left, rgba(210, 163, 60, 0.08), transparent 24%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.08), transparent 18%),
+        linear-gradient(90deg, #181818 0%, #232323 48%, #2a2a2a 100%);
+      color: white;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: linear-gradient(90deg, rgba(16,18,17,0.95), rgba(24,26,24,0.95));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    }
+
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #0d6f31, #27ca62);
+      box-shadow:
+        0 14px 30px rgba(34, 197, 94, 0.22),
+        0 0 0 1px rgba(255,255,255,0.08) inset;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: white;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      font-weight: 800;
+    }
+
+    .brand-text span {
+      display: block;
+      color: rgba(255,255,255,0.70);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: rgba(255,255,255,0.84);
+      font-size: 0.97rem;
+      font-weight: 700;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 100%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .header-cta {
+      flex-shrink: 0;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      overflow: hidden;
+      isolation: isolate;
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        filter 0.35s ease,
+        background 0.35s ease,
+        border-color 0.35s ease;
+      white-space: nowrap;
+      font-family: "Manrope", Arial, Helvetica, sans-serif;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 15%, rgba(255,255,255,0.28) 50%, transparent 85%);
+      transform: translateX(-135%);
+      transition: transform 0.9s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      transform: translateX(135%);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #17ad4f 0%, #25d366 48%, #67f49c 100%);
+      box-shadow:
+        0 18px 38px rgba(24, 163, 74, 0.28),
+        0 0 0 1px rgba(255,255,255,0.10) inset,
+        0 0 34px rgba(37, 211, 102, 0.34);
+      animation: pulseGlow 2.8s ease-in-out infinite;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06) saturate(1.08);
+      box-shadow:
+        0 24px 52px rgba(24, 163, 74, 0.34),
+        0 0 0 1px rgba(255,255,255,0.12) inset,
+        0 0 44px rgba(37, 211, 102, 0.48);
+    }
+
+    .btn-soft {
+      color: var(--green-3);
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(243,248,244,0.96));
+      border-color: rgba(34, 197, 94, 0.12);
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.86);
+    }
+
+    .btn-soft:hover {
+      box-shadow:
+        0 18px 36px rgba(0,0,0,0.10),
+        0 0 22px rgba(34, 197, 94, 0.16);
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow:
+          0 18px 38px rgba(24, 163, 74, 0.28),
+          0 0 0 1px rgba(255,255,255,0.10) inset,
+          0 0 28px rgba(37, 211, 102, 0.28);
+      }
+      50% {
+        box-shadow:
+          0 24px 52px rgba(24, 163, 74, 0.34),
+          0 0 0 1px rgba(255,255,255,0.12) inset,
+          0 0 42px rgba(37, 211, 102, 0.46);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      flex-shrink: 0;
+    }
+
+    .eyebrow.gold {
+      color: var(--gold);
+    }
+
+    .eyebrow.green {
+      color: #1d9f4d;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-family: "Manrope", Arial, Helvetica, sans-serif;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(3.4rem, 6vw, 5.9rem);
+      max-width: 820px;
+    }
+
+    h2 {
+      font-size: clamp(2.3rem, 4vw, 4.3rem);
+      max-width: 820px;
+    }
+
+    .section-head {
+      max-width: 920px;
+      margin-bottom: 38px;
+    }
+
+    .section-head p {
+      margin: 18px 0 0;
+      font-size: 1.08rem;
+      max-width: 760px;
+    }
+
+    .section-white .section-head p,
+    .section-white p {
+      color: var(--muted);
+    }
+
+    .section-dark .section-head p,
+    .section-dark p,
+    .section-green .section-head p,
+    .section-green p {
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 12% 15%, rgba(34,197,94,0.08), transparent 22%),
+        radial-gradient(circle at 90% 12%, rgba(210,163,60,0.08), transparent 18%),
+        radial-gradient(circle at 50% 80%, rgba(34,197,94,0.04), transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #f8fbf8 100%);
+      padding: 86px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.9;
+    }
+
+    .hero-lead {
+      margin-top: 12px;
+      max-width: 690px;
+      font-size: 1.32rem;
+      line-height: 1.75;
+      color: #1b2f21;
+      font-weight: 700;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .metric-card {
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,250,246,0.96));
+      border: 1px solid rgba(16, 19, 18, 0.06);
+      box-shadow:
+        0 18px 40px rgba(10, 18, 12, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.92);
+    }
+
+    .metric-card strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 4px;
+      font-weight: 800;
+    }
+
+    .metric-card span {
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 610px;
+      overflow: hidden;
+      border-radius: 36px;
+      background:
+        linear-gradient(160deg, rgba(9, 15, 11, 0.26), rgba(9, 15, 11, 0.64)),
+        url("assets/flyer-5.jpg") center/cover no-repeat;
+      box-shadow:
+        0 34px 90px rgba(7, 12, 9, 0.22),
+        0 0 0 1px rgba(255,255,255,0.45) inset;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(37, 211, 102, 0.16), transparent 34%),
+        linear-gradient(180deg, transparent 15%, rgba(0,0,0,0.24) 100%);
+    }
+
+    .glass-panel {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 24px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 24px 50px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.22);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      color: white;
+    }
+
+    .glass-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .glass-pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .glass-panel h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .glass-panel p {
+      margin: 0;
+      color: rgba(255,255,255,0.84);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .premium-grid,
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      position: relative;
+      padding: 30px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .section-white .card,
+    .section-green .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(244,248,245,0.95));
+      border: 1px solid rgba(255,255,255,0.82);
+      box-shadow:
+        0 22px 50px rgba(9, 14, 11, 0.10),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+
+    .section-dark .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow:
+        0 24px 60px rgba(0,0,0,0.24),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .section-white .card::before,
+    .section-green .card::before {
+      background:
+        linear-gradient(135deg, rgba(34,197,94,0.08), transparent 44%),
+        linear-gradient(180deg, transparent, rgba(210,163,60,0.03));
+    }
+
+    .section-dark .card::before {
+      background:
+        linear-gradient(135deg, rgba(34,197,94,0.08), transparent 46%),
+        linear-gradient(180deg, transparent, rgba(210,163,60,0.04));
+    }
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      box-shadow:
+        0 16px 30px rgba(0,0,0,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+
+    .section-white .icon-box,
+    .section-green .icon-box {
+      color: var(--green-3);
+      background: linear-gradient(135deg, rgba(34,197,94,0.16), rgba(210,163,60,0.12));
+      border: 1px solid rgba(34,197,94,0.12);
+    }
+
+    .section-dark .icon-box {
+      color: #95f5b6;
+      background: linear-gradient(135deg, rgba(37,211,102,0.16), rgba(255,255,255,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .icon-box svg {
+      width: 25px;
+      height: 25px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card h3 {
+      font-size: 1.24rem;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .section-white .card h3,
+    .section-green .card h3 {
+      color: #111512;
+    }
+
+    .section-dark .card h3 {
+      color: white;
+    }
+
+    .section-white .card p,
+    .section-green .card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .section-dark .card p {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      font-size: 1rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .about-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 8px;
+    }
+
+    .about-photo-circle {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,248,244,0.95));
+      border: 8px solid rgba(255,255,255,0.95);
+      box-shadow:
+        0 26px 60px rgba(8, 12, 10, 0.14),
+        0 0 0 1px rgba(17, 20, 18, 0.05),
+        0 0 0 14px rgba(34, 197, 94, 0.07);
+    }
+
+    .about-photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stack {
+      display: grid;
+      gap: 20px;
+    }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .trust-strip {
+      padding: 24px 26px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(239,248,242,0.94));
+      border: 1px solid rgba(34,197,94,0.10);
+      box-shadow: var(--shadow-md);
+      color: #14552e;
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .land-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .land-card {
+      position: relative;
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(243,248,244,0.96));
+      border: 1px solid rgba(17, 19, 18, 0.06);
+      box-shadow:
+        0 24px 60px rgba(8, 12, 10, 0.10),
+        inset 0 1px 0 rgba(255,255,255,0.92);
+      overflow: hidden;
+    }
+
+    .land-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(34,197,94,0.06), transparent 44%),
+        linear-gradient(180deg, transparent, rgba(210,163,60,0.03));
+      pointer-events: none;
+    }
+
+    .land-tag {
+      display: inline-block;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(34,197,94,0.10);
+      color: var(--green-3);
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .land-size {
+      font-size: 1.45rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #101312;
+      line-height: 1.2;
+    }
+
+    .land-location {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .land-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .highlights-wrap {
+      display: grid;
+      gap: 24px;
+    }
+
+    .highlight-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .gallery-card {
+      position: relative;
+      padding: 12px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow:
+        0 26px 60px rgba(0,0,0,0.24),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    .gallery-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(34,197,94,0.08), transparent 50%);
+      pointer-events: none;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+    }
+
+    .contact-shell {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 26px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,248,245,0.95));
+      border: 1px solid rgba(17, 19, 18, 0.06);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 1rem;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: var(--muted);
+      word-break: break-word;
+      font-size: 0.98rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #111512;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(17, 19, 18, 0.08);
+      border-radius: 16px;
+      padding: 15px 16px;
+      font: inherit;
+      color: var(--text);
+      background: rgba(255,255,255,0.98);
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.92);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      font-family: "Manrope", Arial, Helvetica, sans-serif;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(34, 197, 94, 0.36);
+      box-shadow:
+        0 0 0 4px rgba(34, 197, 94, 0.12),
+        inset 0 1px 0 rgba(255,255,255,0.92);
+    }
+
+    .site-footer {
+      background:
+        radial-gradient(circle at left top, rgba(34,197,94,0.07), transparent 22%),
+        linear-gradient(90deg, #111312 0%, #1a1d1b 50%, #232524 100%);
+      padding: 36px 0 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: white;
+    }
+
+    .footer-shell {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-dark);
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.76);
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .about-grid,
+      .contact-shell,
+      .footer-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .premium-grid,
+      .why-grid,
+      .highlight-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-photo-wrap {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-shell {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .header-cta {
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      .hero-metrics,
+      .premium-grid,
+      .why-grid,
+      .subgrid,
+      .land-grid,
+      .highlight-row,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 11vw, 4.2rem);
+      }
+
+      .hero-card {
+        min-height: 500px;
+      }
+
+      .about-photo-circle {
+        width: 240px;
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(var(--container), calc(100% - 20px));
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions,
+      .land-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .land-card {
+        padding: 22px;
+      }
+
+      .about-photo-circle {
+        width: 210px;
+        height: 210px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-shell">
+        <a href="#home" class="brand" aria-label="EXCEL-DOM MULTISERVICES LIMITED">
+          <div class="brand-mark">
+            <img src="assets/logo.jpg" alt="EXCEL-DOM MULTISERVICES LIMITED logo" />
+          </div>
+          <div class="brand-text">
+            <strong>EXCEL-DOM MULTISERVICES LIMITED</strong>
+            <span>Land Real Estate & Construction Services</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#lands">Available Lands</a>
+          <a href="#highlights">Highlights</a>
+          <a href="#why-choose-us">Why Choose Us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-cta">
+          <a
+            href="https://wa.me/2348133898385"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow green">Premium Land Real Estate Services</div>
+            <h1>Secure genuine land opportunities with confidence, clarity, and trusted professional support</h1>
+
+            <p class="hero-lead">
+              A dependable company committed to helping clients access land opportunities, real estate guidance, and construction-related support with integrity and excellence.
+            </p>
+
+            <p class="hero-copy">
+              EXCEL-DOM MULTISERVICES LIMITED serves individuals, families, and investors who value trustworthy communication, quality service, and a professional business relationship throughout their property journey.
+            </p>
+
+            <div class="hero-metrics">
+              <div class="metric-card">
+                <strong>CAC REG NO</strong>
+                <span>7003941</span>
+              </div>
+              <div class="metric-card">
+                <strong>WhatsApp</strong>
+                <span>08133898385</span>
+              </div>
+              <div class="metric-card">
+                <strong>Client Support</strong>
+                <span>Responsive and direct</span>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#lands" class="btn btn-primary">View Available Lands</a>
+              <a href="#services" class="btn btn-soft">Explore Services</a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card">
+              <div class="glass-panel">
+                <div class="glass-pills">
+                  <span class="glass-pill">Trusted Land Access</span>
+                  <span class="glass-pill">Professional Support</span>
+                </div>
+                <h3>Helping clients make property decisions with greater peace of mind</h3>
+                <p>
+                  We provide a clear, dependable, and professional experience for clients seeking land opportunities, business guidance, and responsive service.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-white">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow green">About the Company</div>
+          <h2>A trusted company focused on land real estate and construction support</h2>
+          <p>
+            EXCEL-DOM MULTISERVICES LIMITED is dedicated to helping clients access valuable land opportunities and dependable support services through professionalism, integrity, and strong business communication.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-photo-wrap">
+            <div class="about-photo-circle">
+              <img src="assets/ceo.jpg" alt="CEO of EXCEL-DOM MULTISERVICES LIMITED" />
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="trust-strip">
+              Our company is built on trust, responsiveness, and a commitment to helping clients navigate land opportunities and related services with confidence.
+            </div>
+
+            <div class="subgrid">
+              <article class="card">
+                <h3>Our Mission</h3>
+                <p>To provide reliable land real estate and construction support services that help clients make sound and informed decisions.</p>
+              </article>
+
+              <article class="card">
+                <h3>Our Vision</h3>
+                <p>To be recognized as a respected company known for genuine opportunities, professional service, and client confidence.</p>
+              </article>
+
+              <article class="card">
+                <h3>Our Values</h3>
+                <p>Integrity, transparency, professionalism, responsiveness, and service excellence in every client interaction.</p>
+              </article>
+
+              <article class="card">
+                <h3>Leadership</h3>
+                <p>Our leadership is committed to building trust, delivering clarity, and maintaining a professional standard across every service touchpoint.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-green">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow gold">Services</div>
+          <h2>Land, real estate, and construction-related support tailored to client needs</h2>
+          <p>
+            Our services are structured to support land inquiries, property guidance, inspections, documentation communication, and construction-related assistance.
+          </p>
+        </div>
+
+        <div class="premium-grid">
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 21h18"></path>
+                <path d="M5 21V7l7-4 7 4v14"></path>
+                <path d="M9 11h6"></path>
+                <path d="M9 15h6"></path>
+              </svg>
+            </div>
+            <h3>Land Sales</h3>
+            <p>We present available land opportunities clearly for buyers, investors, and clients seeking genuine property options.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 17l6-6 4 4 7-7"></path>
+                <path d="M14 8h6v6"></path>
+              </svg>
+            </div>
+            <h3>Property Guidance</h3>
+            <p>We help clients understand suitable land opportunities and make better decisions through direct and professional support.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z"></path>
+                <circle cx="12" cy="10" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>Site Inspection Support</h3>
+            <p>We coordinate site visits and inquiry discussions for clients who want greater clarity before making a property decision.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M8 13h6"></path>
+              </svg>
+            </div>
+            <h3>Real Estate Advisory</h3>
+            <p>We provide helpful information and professional communication for clients exploring land and real estate opportunities.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"></path>
+                <path d="M14 3v6h6"></path>
+                <path d="M8 13h8"></path>
+                <path d="M8 17h5"></path>
+              </svg>
+            </div>
+            <h3>Documentation Guidance</h3>
+            <p>We assist with professional communication around land-related documentation and the information clients may need during inquiries.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 20h16"></path>
+                <path d="M6 20V8l6-4 6 4v12"></path>
+                <path d="M10 11h4"></path>
+                <path d="M10 15h4"></path>
+              </svg>
+            </div>
+            <h3>Construction Support</h3>
+            <p>We also offer construction-related support services for clients who require dependable communication and organized service delivery.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lands" class="section section-white">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow gold">Available Lands</div>
+          <h2>Current land opportunities presented clearly for interested buyers and investors</h2>
+          <p>
+            Browse our available land listings below and contact us directly for more information, site inspection support, or further guidance.
+          </p>
+        </div>
+
+        <div class="land-grid">
+          <article class="land-card">
+            <span class="land-tag">Property Listing 1</span>
+            <div class="land-size">100ft × 150ft</div>
+            <p class="land-location">Idumuje-unor road, after the oil mill Ogbekenu Village, Onicha-Ugbo, Aniocha North LGA, Delta State.</p>
+            <div class="land-actions">
+              <a href="https://wa.me/2348133898385?text=Hello%20EXCEL-DOM%20MULTISERVICES%20LIMITED,%20I%20want%20details%20about%20Property%20Listing%201%20(100ft%20x%20150ft)." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request Details</a>
+              <a href="mailto:exceldommultiserviceslimited@gmail.com?subject=Book%20Inspection%20for%20Property%20Listing%201" class="btn btn-soft">Book Inspection</a>
+            </div>
+          </article>
+
+          <article class="land-card">
+            <span class="land-tag">Property Listing 2</span>
+            <div class="land-size">100ft × 100ft</div>
+            <p class="land-location">Before Chief Victor Uwaji's house, st.pius road, Ogbe-Obi Village, Onicha-Ugbo, Aniocha North LGA, Delta State.</p>
+            <div class="land-actions">
+              <a href="https://wa.me/2348133898385?text=Hello%20EXCEL-DOM%20MULTISERVICES%20LIMITED,%20I%20want%20details%20about%20Property%20Listing%202%20(100ft%20x%20100ft)." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request Details</a>
+              <a href="mailto:exceldommultiserviceslimited@gmail.com?subject=Book%20Inspection%20for%20Property%20Listing%202" class="btn btn-soft">Book Inspection</a>
+            </div>
+          </article>
+
+          <article class="land-card">
+            <span class="land-tag">Property Listing 3</span>
+            <div class="land-size">100ft × 200ft</div>
+            <p class="land-location">Issele-uku road, Onicha-Ugbo, Aniocha North LGA Delta State.</p>
+            <div class="land-actions">
+              <a href="https://wa.me/2348133898385?text=Hello%20EXCEL-DOM%20MULTISERVICES%20LIMITED,%20I%20want%20details%20about%20Property%20Listing%203%20(100ft%20x%20200ft)." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request Details</a>
+              <a href="mailto:exceldommultiserviceslimited@gmail.com?subject=Book%20Inspection%20for%20Property%20Listing%203" class="btn btn-soft">Book Inspection</a>
+            </div>
+          </article>
+
+          <article class="land-card">
+            <span class="land-tag">Property Listing 4</span>
+            <div class="land-size">100ft × 200ft</div>
+            <p class="land-location">Off Issele-uku road, Ishiekpe Village, Onicha-Ugbo, Aniocha North LGA, Delta State.</p>
+            <div class="land-actions">
+              <a href="https://wa.me/2348133898385?text=Hello%20EXCEL-DOM%20MULTISERVICES%20LIMITED,%20I%20want%20details%20about%20Property%20Listing%204%20(100ft%20x%20200ft)." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request Details</a>
+              <a href="mailto:exceldommultiserviceslimited@gmail.com?subject=Book%20Inspection%20for%20Property%20Listing%204" class="btn btn-soft">Book Inspection</a>
+            </div>
+          </article>
+
+          <article class="land-card">
+            <span class="land-tag">Property Listing 5</span>
+            <div class="land-size">100ft × 200ft</div>
+            <p class="land-location">Idumu oseh site, Ogbe-Obi Village, Onicha-Ugbo Aniocha North LGA Delta State.</p>
+            <div class="land-actions">
+              <a href="https://wa.me/2348133898385?text=Hello%20EXCEL-DOM%20MULTISERVICES%20LIMITED,%20I%20want%20details%20about%20Property%20Listing%205%20(100ft%20x%20200ft)." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Request Details</a>
+              <a href="mailto:exceldommultiserviceslimited@gmail.com?subject=Book%20Inspection%20for%20Property%20Listing%205" class="btn btn-soft">Book Inspection</a>
+            </div>
+          </article>
+
+          <article class="land-card">
+            <span class="land-tag">Business Contact</span>
+            <div class="land-size">Need more property information?</div>
+            <p class="land-location">Call, email, or chat with us on WhatsApp for support on available lands, site inspections, and other business services.</p>
+            <div class="land-actions">
+              <a href="tel:08133898385" class="btn btn-soft">Call 08133898385</a>
+              <a href="https://wa.me/2348133898385" target="_blank" rel="noopener noreferrer" class="btn btn-primary">WhatsApp Us</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="section section-dark">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow gold">Company Highlights</div>
+          <h2>Organized company flyers and promotional materials</h2>
+          <p>
+            This section presents selected promotional materials that reflect our business identity, communicate our services clearly, and support client awareness of our land real estate and construction-related offerings.
+          </p>
+        </div>
+
+        <div class="highlights-wrap">
+          <div class="highlight-row">
+            <figure class="gallery-card">
+              <img src="assets/flyer-1.jpg" alt="Company flyer 1" loading="eager" />
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/flyer-2.jpg" alt="Company flyer 2" loading="eager" />
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/flyer-3.jpg" alt="Company flyer 3" loading="eager" />
+            </figure>
+          </div>
+
+          <div class="highlight-row">
+            <figure class="gallery-card">
+              <img src="assets/flyer-4.jpg" alt="Company flyer 4" loading="eager" />
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/flyer-5.jpg" alt="Company flyer 5" loading="eager" />
+            </figure>
+            <figure class="gallery-card">
+              <img src="assets/flyer-6.jpg" alt="Company flyer 6" loading="eager" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-choose-us" class="section section-white">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow green">Why Choose Us</div>
+          <h2>Why clients continue to trust EXCEL-DOM MULTISERVICES LIMITED</h2>
+          <p>
+            Our company combines trust, responsiveness, professional presentation, and client-focused service to create a dependable experience for every inquiry.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s7-4.35 7-11V5l-7-3-7 3v6c0 6.65 7 11 7 11Z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <h3>Trusted Business Identity</h3>
+            <p>We operate with professionalism and credibility, giving clients greater confidence in our company and services.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M8 13h6"></path>
+              </svg>
+            </div>
+            <h3>Clear Communication</h3>
+            <p>We make it easy for clients to ask questions, request details, and receive direct and helpful responses.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 20h16"></path>
+                <path d="M6 20V8l6-4 6 4v12"></path>
+                <path d="M10 11h4"></path>
+                <path d="M10 15h4"></path>
+              </svg>
+            </div>
+            <h3>Professional Service Approach</h3>
+            <p>From inquiries to inspections and follow-up discussions, we maintain a reliable and well-organized service experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-green">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow gold">Contact</div>
+          <h2>Reach out for land inquiries, site inspections, and business support</h2>
+          <p>
+            We are available to assist with questions about available lands, inspection arrangements, and other company services through direct communication channels.
+          </p>
+        </div>
+
+        <div class="contact-shell">
+          <article class="card">
+            <h3>Contact Information</h3>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.63a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.45-1.29a2 2 0 0 1 2.11-.45c.85.3 1.73.51 2.63.63A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Phone</strong>
+                  <span>08133898385 / 08026604649</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16v16H4z"></path>
+                    <path d="m22 6-10 7L2 6"></path>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:exceldommultiserviceslimited@gmail.com">exceldommultiserviceslimited@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <strong>WhatsApp</strong>
+                  <a href="https://wa.me/2348133898385" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 6h13"></path>
+                    <path d="M8 12h13"></path>
+                    <path d="M8 18h13"></path>
+                    <path d="M3 6h.01"></path>
+                    <path d="M3 12h.01"></path>
+                    <path d="M3 18h.01"></path>
+                  </svg>
+                </div>
+                <div>
+                  <strong>CAC REG NO</strong>
+                  <span>7003941</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Send Us an Inquiry</h3>
+            <form action="mailto:exceldommultiserviceslimited@gmail.com" method="post" enctype="text/plain">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Full Name</label>
+                  <input id="name" name="Full Name" type="text" placeholder="Your full name" required />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" name="Phone Number" type="tel" placeholder="Your phone number" required />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="Email" type="email" placeholder="Your email address" required />
+                </div>
+
+                <div class="field">
+                  <label for="subject">Subject</label>
+                  <input id="subject" name="Subject" type="text" placeholder="Inquiry subject" required />
+                </div>
+
+                <div class="field full">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="Message" placeholder="Tell us what you need" required></textarea>
+                </div>
+
+                <div class="field full">
+                  <button type="submit" class="btn btn-primary">Send Inquiry</button>
+                </div>
+              </div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-shell">
+        <div>
+          <a href="#home" class="brand" aria-label="Go to top">
+            <div class="brand-mark">
+              <img src="assets/logo.jpg" alt="EXCEL-DOM MULTISERVICES LIMITED logo" />
+            </div>
+            <div class="brand-text">
+              <strong>EXCEL-DOM MULTISERVICES LIMITED</strong>
+              <span>Land Real Estate & Construction Services</span>
+            </div>
+          </a>
+
+          <p style="margin: 18px 0 0; color: rgba(255,255,255,0.72); max-width: 620px; font-size: 1rem; line-height: 1.85;">
+            EXCEL-DOM MULTISERVICES LIMITED is committed to providing trusted land opportunities, professional communication, and dependable support for clients seeking quality service.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#lands">Available Lands</a>
+          <a href="#highlights">Highlights</a>
+          <a href="#why-choose-us">Why Choose Us</a>
+          <a href="#contact">Contact</a>
+          <a href="https://wa.me/2348133898385" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
