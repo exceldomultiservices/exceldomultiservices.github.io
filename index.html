@@ -25,13 +25,11 @@
       --text: #111412;
       --muted: #626b65;
       --line: rgba(17, 20, 18, 0.08);
-
       --shadow-sm: 0 12px 30px rgba(8, 12, 10, 0.06);
       --shadow-md: 0 20px 50px rgba(8, 12, 10, 0.10);
       --shadow-lg: 0 30px 80px rgba(8, 12, 10, 0.16);
       --shadow-dark: 0 28px 70px rgba(0, 0, 0, 0.34);
       --shadow-green: 0 18px 45px rgba(34, 197, 94, 0.22);
-
       --radius-xl: 34px;
       --radius-lg: 28px;
       --radius-md: 22px;
@@ -133,9 +131,7 @@
       overflow: hidden;
       flex-shrink: 0;
       background: #ffffff;
-      box-shadow:
-        0 12px 26px rgba(0, 0, 0, 0.18),
-        0 0 0 1px rgba(255,255,255,0.10);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255,255,255,0.10);
       padding: 6px;
       display: grid;
       place-items: center;
@@ -220,12 +216,7 @@
       cursor: pointer;
       overflow: hidden;
       isolation: isolate;
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        filter 0.35s ease,
-        background 0.35s ease,
-        border-color 0.35s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease, background 0.35s ease, border-color 0.35s ease;
       white-space: nowrap;
       font-family: "Manrope", Arial, Helvetica, sans-serif;
     }
@@ -270,15 +261,11 @@
       color: var(--green-3);
       background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(243,248,244,0.96));
       border-color: rgba(34, 197, 94, 0.12);
-      box-shadow:
-        0 14px 30px rgba(0,0,0,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.86);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.86);
     }
 
     .btn-soft:hover {
-      box-shadow:
-        0 18px 36px rgba(0,0,0,0.10),
-        0 0 22px rgba(34, 197, 94, 0.16);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.10), 0 0 22px rgba(34, 197, 94, 0.16);
     }
 
     @keyframes pulseGlow {
@@ -451,15 +438,16 @@
       position: relative;
       min-height: 610px;
       overflow: hidden;
-      border-radius: 36px;
+      border-radius: 40px;
       background:
-        radial-gradient(circle at 78% 18%, rgba(255,255,255,0.22), transparent 18%),
-        radial-gradient(circle at 18% 24%, rgba(103,244,156,0.18), transparent 18%),
-        linear-gradient(140deg, rgba(9, 15, 11, 0.18), rgba(9, 15, 11, 0.60)),
-        linear-gradient(135deg, #355a43 0%, #6ca07b 40%, #dfe8e1 100%);
+        radial-gradient(circle at 80% 15%, rgba(255,255,255,0.22), transparent 18%),
+        radial-gradient(circle at 15% 25%, rgba(103,244,156,0.20), transparent 20%),
+        linear-gradient(145deg, rgba(8, 12, 10, 0.08), rgba(8, 12, 10, 0.34)),
+        linear-gradient(135deg, #27553a 0%, #3d7a53 34%, #83c594 68%, #edf6ef 100%);
       box-shadow:
         0 34px 90px rgba(7, 12, 9, 0.22),
-        0 0 0 1px rgba(255,255,255,0.45) inset;
+        0 0 0 1px rgba(255,255,255,0.50) inset,
+        0 30px 60px rgba(34, 197, 94, 0.10);
     }
 
     .hero-card::before {
@@ -467,157 +455,389 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(135deg, rgba(37, 211, 102, 0.14), transparent 36%),
-        linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.18) 100%);
+        linear-gradient(135deg, rgba(255,255,255,0.08), transparent 34%),
+        linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.16) 100%);
       pointer-events: none;
     }
 
     .hero-card::after {
       content: "";
       position: absolute;
-      right: -30px;
-      top: 88px;
-      width: 78%;
-      height: 58%;
-      border-radius: 30px 30px 0 0;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
-        linear-gradient(135deg, #e8efe9 0%, #d8e2da 45%, #b6c7b8 100%);
-      box-shadow:
-        -18px 20px 40px rgba(0,0,0,0.16),
-        inset 0 0 0 1px rgba(255,255,255,0.28);
-      transform: perspective(1100px) rotateY(-18deg) rotateX(1deg);
-      transform-origin: right center;
-      opacity: 0.95;
+      inset: 14px;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.14);
+      pointer-events: none;
     }
 
     .hero-visual-badge {
       position: absolute;
-      top: 34px;
-      left: 34px;
+      top: 28px;
+      left: 28px;
       padding: 12px 18px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.24);
       color: white;
       font-size: 0.9rem;
       font-weight: 800;
-      z-index: 2;
+      z-index: 5;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
     }
 
-    .hero-shape {
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(3px);
+      pointer-events: none;
+    }
+
+    .hero-orb.one {
+      width: 170px;
+      height: 170px;
+      top: -24px;
+      right: -22px;
+      background: radial-gradient(circle, rgba(255,255,255,0.35), rgba(255,255,255,0.04) 68%, transparent 72%);
+    }
+
+    .hero-orb.two {
+      width: 220px;
+      height: 220px;
+      bottom: -54px;
+      left: -40px;
+      background: radial-gradient(circle, rgba(37,211,102,0.26), rgba(37,211,102,0.05) 64%, transparent 70%);
+    }
+
+    .hero-dashboard {
       position: absolute;
       left: 34px;
-      top: 120px;
-      width: 180px;
-      height: 180px;
-      border-radius: 32px;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
-      border: 1px solid rgba(255,255,255,0.16);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.16);
-      z-index: 1;
+      right: 34px;
+      top: 94px;
+      bottom: 34px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 18px;
+      z-index: 2;
     }
 
-    .hero-shape::before,
-    .hero-shape::after {
+    .hero-panel {
+      position: relative;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,248,244,0.92));
+      border: 1px solid rgba(255,255,255,0.82);
+      box-shadow:
+        0 20px 40px rgba(0,0,0,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.92);
+      overflow: hidden;
+    }
+
+    .hero-panel.dark {
+      background: linear-gradient(180deg, rgba(11, 24, 16, 0.82), rgba(15, 44, 27, 0.72));
+      border: 1px solid rgba(255,255,255,0.10);
+      color: white;
+      box-shadow:
+        0 20px 42px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .hero-panel.map {
+      grid-row: 1 / span 2;
+      padding: 22px;
+    }
+
+    .hero-panel.stats {
+      padding: 18px;
+    }
+
+    .hero-panel.mini {
+      padding: 18px;
+    }
+
+    .hero-panel.info {
+      grid-column: 1 / -1;
+      padding: 22px;
+    }
+
+    .panel-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(34,197,94,0.10);
+      color: #0f7f3b;
+      margin-bottom: 14px;
+    }
+
+    .panel-label.dark {
+      background: rgba(255,255,255,0.10);
+      color: #dff7e7;
+    }
+
+    .property-map {
+      position: relative;
+      height: 100%;
+      min-height: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(235,245,237,0.92), rgba(223,238,228,0.92)),
+        linear-gradient(135deg, #eef7f0, #dbeadb);
+      border: 1px solid rgba(17,20,18,0.05);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.84);
+    }
+
+    .property-map::before,
+    .property-map::after {
       content: "";
       position: absolute;
-      background: rgba(255,255,255,0.9);
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .property-map::before {
+      background:
+        linear-gradient(90deg, rgba(17,20,18,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(17,20,18,0.05) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: 0.42;
+    }
+
+    .property-map::after {
+      background:
+        linear-gradient(125deg, transparent 0 38%, rgba(34,197,94,0.10) 38% 43%, transparent 43% 100%),
+        linear-gradient(12deg, transparent 0 53%, rgba(210,163,60,0.12) 53% 58%, transparent 58% 100%);
+    }
+
+    .road {
+      position: absolute;
+      background: linear-gradient(180deg, #ffffff, #edf3ee);
       border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(17,20,18,0.08);
     }
 
-    .hero-shape::before {
-      width: 94px;
-      height: 14px;
-      left: 24px;
-      top: 44px;
+    .road.one {
+      width: 120%;
+      height: 24px;
+      left: -8%;
+      top: 48%;
+      transform: rotate(-17deg);
     }
 
-    .hero-shape::after {
-      width: 120px;
-      height: 14px;
-      left: 24px;
-      top: 74px;
-      opacity: 0.78;
+    .road.two {
+      width: 26px;
+      height: 100%;
+      left: 45%;
+      top: -8%;
+      transform: rotate(7deg);
     }
 
-    .hero-mini-card {
+    .road.three {
+      width: 70%;
+      height: 18px;
+      right: -6%;
+      top: 22%;
+      transform: rotate(-28deg);
+      opacity: 0.92;
+    }
+
+    .plot {
       position: absolute;
-      right: 34px;
-      top: 78px;
-      width: 210px;
-      padding: 18px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,248,245,0.90));
-      color: #16231a;
-      box-shadow: 0 26px 50px rgba(0,0,0,0.15);
-      z-index: 3;
+      border-radius: 18px;
+      border: 2px solid rgba(15,127,59,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(239,248,242,0.76));
+      box-shadow: 0 14px 26px rgba(17,20,18,0.06);
     }
 
-    .hero-mini-card strong {
-      display: block;
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-      font-weight: 800;
+    .plot.a {
+      width: 112px;
+      height: 92px;
+      left: 14%;
+      top: 16%;
     }
 
-    .hero-mini-card span {
-      display: block;
-      font-size: 0.92rem;
-      line-height: 1.6;
-      color: #526057;
+    .plot.b {
+      width: 126px;
+      height: 88px;
+      right: 14%;
+      top: 16%;
     }
 
-    .glass-panel {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
-      padding: 24px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
-      border: 1px solid rgba(255,255,255,0.18);
+    .plot.c {
+      width: 116px;
+      height: 94px;
+      left: 18%;
+      bottom: 14%;
+    }
+
+    .plot.d {
+      width: 132px;
+      height: 92px;
+      right: 12%;
+      bottom: 16%;
+    }
+
+    .plot.highlight {
+      border-color: rgba(34,197,94,0.70);
+      background: linear-gradient(180deg, rgba(214,252,227,0.96), rgba(184,244,205,0.92));
       box-shadow:
-        0 24px 50px rgba(0,0,0,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.22);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      color: white;
-      z-index: 4;
+        0 16px 34px rgba(34,197,94,0.18),
+        0 0 0 4px rgba(34,197,94,0.10);
     }
 
-    .glass-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .glass-pill {
-      padding: 8px 14px;
+    .plot-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
-      font-size: 0.84rem;
+      background: rgba(255,255,255,0.86);
+      color: #14552e;
+      font-size: 0.72rem;
       font-weight: 800;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.06);
     }
 
-    .glass-panel h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+    .pin {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: linear-gradient(135deg, #17ad4f, #25d366);
+      box-shadow: 0 10px 24px rgba(34,197,94,0.28);
+    }
+
+    .pin::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      top: 6px;
+      left: 6px;
+    }
+
+    .pin.one {
+      left: 34%;
+      top: 32%;
+    }
+
+    .pin.two {
+      right: 28%;
+      bottom: 28%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .stat-box {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.88);
+      color: #132118;
+      box-shadow: 0 14px 24px rgba(0,0,0,0.08);
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 1.08rem;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .stat-box span {
+      font-size: 0.86rem;
+      color: #5a655e;
+      font-weight: 600;
+    }
+
+    .stat-box.accent {
+      background: linear-gradient(135deg, #17ad4f, #4be27f);
+      color: white;
+      box-shadow: 0 18px 30px rgba(34,197,94,0.26);
+    }
+
+    .stat-box.accent span {
+      color: rgba(255,255,255,0.86);
+    }
+
+    .hero-mini-list {
+      display: grid;
+      gap: 10px;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-mini-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: #dff3e5;
+    }
+
+    .hero-mini-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #67f49c, #d2a33c);
+      box-shadow: 0 0 12px rgba(103,244,156,0.4);
+      flex-shrink: 0;
+    }
+
+    .hero-info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-info-grid h3 {
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+      color: #111512;
       font-family: "Playfair Display", Georgia, serif;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
-    .glass-panel p {
+    .hero-info-grid p {
       margin: 0;
-      color: rgba(255,255,255,0.84);
-      font-size: 1rem;
-      line-height: 1.8;
+      color: #5a655e;
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    .hero-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .hero-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(239,248,242,0.96));
+      border: 1px solid rgba(17,20,18,0.06);
+      color: #14552e;
+      font-size: 0.82rem;
+      font-weight: 800;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
     }
 
     .premium-grid,
@@ -681,9 +901,7 @@
       place-items: center;
       border-radius: 20px;
       margin-bottom: 18px;
-      box-shadow:
-        0 16px 30px rgba(0,0,0,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.7);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.7);
     }
 
     .section-white .icon-box,
@@ -974,9 +1192,7 @@
     input:focus,
     textarea:focus {
       border-color: rgba(34, 197, 94, 0.36);
-      box-shadow:
-        0 0 0 4px rgba(34, 197, 94, 0.12),
-        inset 0 1px 0 rgba(255,255,255,0.92);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12), inset 0 1px 0 rgba(255,255,255,0.92);
     }
 
     .site-footer {
@@ -1065,18 +1281,25 @@
       }
 
       .hero-card {
-        min-height: 530px;
+        min-height: 760px;
       }
 
-      .hero-card::after {
-        width: 82%;
-        height: 46%;
-        top: 102px;
+      .hero-dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
       }
 
-      .hero-mini-card {
-        right: 24px;
-        top: 72px;
+      .hero-panel.map {
+        grid-row: auto;
+      }
+
+      .hero-panel.info,
+      .hero-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-pill-group {
+        justify-content: flex-start;
       }
 
       .about-photo-circle {
@@ -1123,16 +1346,19 @@
         height: 54px;
       }
 
-      .hero-shape {
-        width: 130px;
-        height: 130px;
-        top: 120px;
-        left: 24px;
+      .hero-card {
+        min-height: 720px;
       }
 
-      .hero-mini-card {
-        width: 170px;
-        padding: 14px;
+      .hero-dashboard {
+        left: 18px;
+        right: 18px;
+        top: 88px;
+        bottom: 18px;
+      }
+
+      .property-map {
+        min-height: 260px;
       }
 
       .gallery-card img {
@@ -1151,7 +1377,7 @@
           </div>
           <div class="brand-text">
             <strong>EXCEL-DOM MULTISERVICES LIMITED</strong>
-            <span>Land Real Estate & Construction Services</span>
+            <span>Land Real Estate &amp; Construction Services</span>
           </div>
         </a>
 
@@ -1188,11 +1414,14 @@
             <h1>Secure genuine land opportunities with confidence, clarity, and trusted professional support</h1>
 
             <p class="hero-lead">
-              A dependable company committed to helping clients access land opportunities, real estate guidance, and construction-related support with integrity and excellence.
+              A dependable company committed to helping clients access land opportunities,
+              real estate guidance, and construction-related support with integrity and excellence.
             </p>
 
             <p class="hero-copy">
-              EXCEL-DOM MULTISERVICES LIMITED serves individuals, families, and investors who value trustworthy communication, quality service, and a professional business relationship throughout their property journey.
+              EXCEL-DOM MULTISERVICES LIMITED serves individuals, families, and investors who
+              value trustworthy communication, quality service, and a professional business
+              relationship throughout their property journey.
             </p>
 
             <div class="hero-metrics">
@@ -1218,23 +1447,85 @@
 
           <div class="hero-visual">
             <div class="hero-card">
+              <div class="hero-orb one"></div>
+              <div class="hero-orb two"></div>
               <div class="hero-visual-badge">Premium Property Access</div>
-              <div class="hero-shape"></div>
 
-              <div class="hero-mini-card">
-                <strong>Trusted property support</strong>
-                <span>Clear communication, guided inquiries, and dependable service for land buyers and investors.</span>
-              </div>
+              <div class="hero-dashboard">
+                <div class="hero-panel map">
+                  <div class="panel-label">Property Layout</div>
 
-              <div class="glass-panel">
-                <div class="glass-pills">
-                  <span class="glass-pill">Trusted Land Access</span>
-                  <span class="glass-pill">Professional Support</span>
+                  <div class="property-map">
+                    <div class="road one"></div>
+                    <div class="road two"></div>
+                    <div class="road three"></div>
+
+                    <div class="plot a">
+                      <span class="plot-tag">Plot A</span>
+                    </div>
+                    <div class="plot b highlight">
+                      <span class="plot-tag">Verified Land</span>
+                    </div>
+                    <div class="plot c">
+                      <span class="plot-tag">Inspection Area</span>
+                    </div>
+                    <div class="plot d">
+                      <span class="plot-tag">Expansion Zone</span>
+                    </div>
+
+                    <div class="pin one"></div>
+                    <div class="pin two"></div>
+                  </div>
                 </div>
-                <h3>Helping clients make property decisions with greater peace of mind</h3>
-                <p>
-                  We provide a clear, dependable, and professional experience for clients seeking land opportunities, business guidance, and responsive service.
-                </p>
+
+                <div class="hero-panel stats">
+                  <div class="panel-label">Business Focus</div>
+                  <div class="stats-grid">
+                    <div class="stat-box accent">
+                      <strong>Land Sales</strong>
+                      <span>Clear listing support</span>
+                    </div>
+                    <div class="stat-box">
+                      <strong>Inspection</strong>
+                      <span>Guided site visits</span>
+                    </div>
+                    <div class="stat-box">
+                      <strong>Guidance</strong>
+                      <span>Direct client support</span>
+                    </div>
+                    <div class="stat-box">
+                      <strong>Trust</strong>
+                      <span>Professional service</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hero-panel dark mini">
+                  <div class="panel-label dark">Why Clients Choose Us</div>
+                  <ul class="hero-mini-list">
+                    <li>Trusted land opportunities</li>
+                    <li>Professional communication</li>
+                    <li>Reliable inquiry support</li>
+                  </ul>
+                </div>
+
+                <div class="hero-panel info">
+                  <div class="hero-info-grid">
+                    <div>
+                      <h3>Helping clients make better property decisions</h3>
+                      <p>
+                        We provide a premium, modern, and dependable experience for clients
+                        seeking land opportunities, property guidance, and responsive business support.
+                      </p>
+                    </div>
+
+                    <div class="hero-pill-group">
+                      <span class="hero-pill">Trusted Land Access</span>
+                      <span class="hero-pill">Professional Support</span>
+                      <span class="hero-pill">Responsive Service</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1248,7 +1539,9 @@
           <div class="eyebrow green">About the Company</div>
           <h2>A trusted company focused on land real estate and construction support</h2>
           <p>
-            EXCEL-DOM MULTISERVICES LIMITED is dedicated to helping clients access valuable land opportunities and dependable support services through professionalism, integrity, and strong business communication.
+            EXCEL-DOM MULTISERVICES LIMITED is dedicated to helping clients access valuable land
+            opportunities and dependable support services through professionalism, integrity,
+            and strong business communication.
           </p>
         </div>
 
@@ -1261,7 +1554,8 @@
 
           <div class="stack">
             <div class="trust-strip">
-              Our company is built on trust, responsiveness, and a commitment to helping clients navigate land opportunities and related services with confidence.
+              Our company is built on trust, responsiveness, and a commitment to helping clients
+              navigate land opportunities and related services with confidence.
             </div>
 
             <div class="subgrid">
@@ -1296,7 +1590,8 @@
           <div class="eyebrow gold">Services</div>
           <h2>Land, real estate, and construction-related support tailored to client needs</h2>
           <p>
-            Our services are structured to support land inquiries, property guidance, inspections, documentation communication, and construction-related assistance.
+            Our services are structured to support land inquiries, property guidance, inspections,
+            documentation communication, and construction-related assistance.
           </p>
         </div>
 
@@ -1383,7 +1678,8 @@
           <div class="eyebrow gold">Available Lands</div>
           <h2>Current land opportunities presented clearly for interested buyers and investors</h2>
           <p>
-            Browse our available land listings below and contact us directly for more information, site inspection support, or further guidance.
+            Browse our available land listings below and contact us directly for more information,
+            site inspection support, or further guidance.
           </p>
         </div>
 
@@ -1457,7 +1753,9 @@
           <div class="eyebrow gold">Company Highlights</div>
           <h2>Organized company flyers and promotional materials</h2>
           <p>
-            This section presents selected promotional materials that reflect our business identity, communicate our services clearly, and support client awareness of our land real estate and construction-related offerings.
+            This section presents selected promotional materials that reflect our business identity,
+            communicate our services clearly, and support client awareness of our land real estate
+            and construction-related offerings.
           </p>
         </div>
 
@@ -1495,7 +1793,8 @@
           <div class="eyebrow green">Why Choose Us</div>
           <h2>Why clients continue to trust EXCEL-DOM MULTISERVICES LIMITED</h2>
           <p>
-            Our company combines trust, responsiveness, professional presentation, and client-focused service to create a dependable experience for every inquiry.
+            Our company combines trust, responsiveness, professional presentation, and
+            client-focused service to create a dependable experience for every inquiry.
           </p>
         </div>
 
@@ -1545,7 +1844,8 @@
           <div class="eyebrow gold">Contact</div>
           <h2>Reach out for land inquiries, site inspections, and business support</h2>
           <p>
-            We are available to assist with questions about available lands, inspection arrangements, and other company services through direct communication channels.
+            We are available to assist with questions about available lands, inspection arrangements,
+            and other company services through direct communication channels.
           </p>
         </div>
 
@@ -1613,7 +1913,8 @@
 
           <article class="card">
             <h3>Send Us an Inquiry</h3>
-            <form action="https://formspree.io/f/myknrjyd" method="POST">
+
+            <form action="https://formspree.io/f/meeryndk" method="POST">
               <input type="hidden" name="_subject" value="New inquiry from EXCEL-DOM website" />
 
               <div class="form-grid">
@@ -1663,12 +1964,13 @@
             </div>
             <div class="brand-text">
               <strong>EXCEL-DOM MULTISERVICES LIMITED</strong>
-              <span>Land Real Estate & Construction Services</span>
+              <span>Land Real Estate &amp; Construction Services</span>
             </div>
           </a>
 
           <p style="margin: 18px 0 0; color: rgba(255,255,255,0.72); max-width: 620px; font-size: 1rem; line-height: 1.85;">
-            EXCEL-DOM MULTISERVICES LIMITED is committed to providing trusted land opportunities, professional communication, and dependable support for clients seeking quality service.
+            EXCEL-DOM MULTISERVICES LIMITED is committed to providing trusted land opportunities,
+            professional communication, and dependable support for clients seeking quality service.
           </p>
         </div>
 
