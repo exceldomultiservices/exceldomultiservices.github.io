@@ -29,7 +29,6 @@
       --shadow-md: 0 20px 50px rgba(8, 12, 10, 0.10);
       --shadow-lg: 0 30px 80px rgba(8, 12, 10, 0.16);
       --shadow-dark: 0 28px 70px rgba(0, 0, 0, 0.34);
-      --shadow-green: 0 18px 45px rgba(34, 197, 94, 0.22);
       --radius-xl: 34px;
       --radius-lg: 28px;
       --radius-md: 22px;
@@ -436,18 +435,17 @@
 
     .hero-card {
       position: relative;
-      min-height: 610px;
+      min-height: 620px;
       overflow: hidden;
-      border-radius: 40px;
+      border-radius: 36px;
       background:
-        radial-gradient(circle at 80% 15%, rgba(255,255,255,0.22), transparent 18%),
-        radial-gradient(circle at 15% 25%, rgba(103,244,156,0.20), transparent 20%),
-        linear-gradient(145deg, rgba(8, 12, 10, 0.08), rgba(8, 12, 10, 0.34)),
-        linear-gradient(135deg, #27553a 0%, #3d7a53 34%, #83c594 68%, #edf6ef 100%);
+        radial-gradient(circle at 80% 15%, rgba(255,255,255,0.20), transparent 18%),
+        radial-gradient(circle at 15% 25%, rgba(103,244,156,0.16), transparent 20%),
+        linear-gradient(135deg, #2f6b46 0%, #3d7a53 48%, #7cb58a 100%);
       box-shadow:
-        0 34px 90px rgba(7, 12, 9, 0.22),
-        0 0 0 1px rgba(255,255,255,0.50) inset,
-        0 30px 60px rgba(34, 197, 94, 0.10);
+        0 28px 70px rgba(7, 12, 9, 0.20),
+        0 0 0 1px rgba(255,255,255,0.35) inset;
+      padding: 26px;
     }
 
     .hero-card::before {
@@ -456,7 +454,7 @@
       inset: 0;
       background:
         linear-gradient(135deg, rgba(255,255,255,0.08), transparent 34%),
-        linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.16) 100%);
+        linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.10) 100%);
       pointer-events: none;
     }
 
@@ -464,133 +462,116 @@
       content: "";
       position: absolute;
       inset: 14px;
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.12);
       pointer-events: none;
+    }
+
+    .hero-orb,
+    .hero-orb.one,
+    .hero-orb.two {
+      display: none;
     }
 
     .hero-visual-badge {
-      position: absolute;
-      top: 28px;
-      left: 28px;
-      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 20px;
       border-radius: 999px;
       background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.24);
-      color: white;
-      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #fff;
+      font-size: 0.95rem;
       font-weight: 800;
-      z-index: 5;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
-    }
-
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(3px);
-      pointer-events: none;
-    }
-
-    .hero-orb.one {
-      width: 170px;
-      height: 170px;
-      top: -24px;
-      right: -22px;
-      background: radial-gradient(circle, rgba(255,255,255,0.35), rgba(255,255,255,0.04) 68%, transparent 72%);
-    }
-
-    .hero-orb.two {
-      width: 220px;
-      height: 220px;
-      bottom: -54px;
-      left: -40px;
-      background: radial-gradient(circle, rgba(37,211,102,0.26), rgba(37,211,102,0.05) 64%, transparent 70%);
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
     }
 
     .hero-dashboard {
-      position: absolute;
-      left: 34px;
-      right: 34px;
-      top: 94px;
-      bottom: 34px;
+      position: relative;
+      inset: auto;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "map stats"
+        "map mini"
+        "info info";
       gap: 18px;
+      align-items: start;
       z-index: 2;
     }
 
     .hero-panel {
       position: relative;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,248,244,0.92));
-      border: 1px solid rgba(255,255,255,0.82);
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(243,248,244,0.94));
+      border: 1px solid rgba(255,255,255,0.80);
       box-shadow:
-        0 20px 40px rgba(0,0,0,0.12),
+        0 18px 36px rgba(0,0,0,0.10),
         inset 0 1px 0 rgba(255,255,255,0.92);
       overflow: hidden;
     }
 
-    .hero-panel.dark {
-      background: linear-gradient(180deg, rgba(11, 24, 16, 0.82), rgba(15, 44, 27, 0.72));
-      border: 1px solid rgba(255,255,255,0.10);
-      color: white;
-      box-shadow:
-        0 20px 42px rgba(0,0,0,0.18),
-        inset 0 1px 0 rgba(255,255,255,0.06);
-    }
-
     .hero-panel.map {
-      grid-row: 1 / span 2;
+      grid-area: map;
       padding: 22px;
+      min-height: 255px;
     }
 
     .hero-panel.stats {
+      grid-area: stats;
       padding: 18px;
     }
 
     .hero-panel.mini {
+      grid-area: mini;
       padding: 18px;
     }
 
     .hero-panel.info {
-      grid-column: 1 / -1;
+      grid-area: info;
       padding: 22px;
+    }
+
+    .hero-panel.dark {
+      background: linear-gradient(180deg, rgba(16, 48, 29, 0.94), rgba(12, 34, 22, 0.94));
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      box-shadow:
+        0 18px 36px rgba(0,0,0,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
     .panel-label {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      background: rgba(34,197,94,0.10);
+      background: #d8eadc;
       color: #0f7f3b;
-      margin-bottom: 14px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
     }
 
     .panel-label.dark {
-      background: rgba(255,255,255,0.10);
-      color: #dff7e7;
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
     }
 
     .property-map {
       position: relative;
+      min-height: 165px;
       height: 100%;
-      min-height: 320px;
       border-radius: 24px;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(235,245,237,0.92), rgba(223,238,228,0.92)),
-        linear-gradient(135deg, #eef7f0, #dbeadb);
-      border: 1px solid rgba(17,20,18,0.05);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.84);
+      background: linear-gradient(180deg, #e8efea 0%, #dfe8e1 100%);
     }
 
     .property-map::before,
@@ -603,105 +584,99 @@
 
     .property-map::before {
       background:
-        linear-gradient(90deg, rgba(17,20,18,0.05) 1px, transparent 1px),
-        linear-gradient(rgba(17,20,18,0.05) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(17,20,18,0.04) 1px, transparent 1px),
+        linear-gradient(rgba(17,20,18,0.04) 1px, transparent 1px);
       background-size: 56px 56px;
-      opacity: 0.42;
     }
 
     .property-map::after {
       background:
-        linear-gradient(125deg, transparent 0 38%, rgba(34,197,94,0.10) 38% 43%, transparent 43% 100%),
-        linear-gradient(12deg, transparent 0 53%, rgba(210,163,60,0.12) 53% 58%, transparent 58% 100%);
+        linear-gradient(125deg, transparent 0 38%, rgba(34,197,94,0.08) 38% 43%, transparent 43% 100%),
+        linear-gradient(12deg, transparent 0 53%, rgba(210,163,60,0.08) 53% 58%, transparent 58% 100%);
     }
 
     .road {
       position: absolute;
-      background: linear-gradient(180deg, #ffffff, #edf3ee);
+      background: rgba(255,255,255,0.55);
       border-radius: 999px;
-      box-shadow: 0 10px 24px rgba(17,20,18,0.08);
+      box-shadow: 0 8px 18px rgba(17,20,18,0.05);
     }
 
     .road.one {
       width: 120%;
-      height: 24px;
-      left: -8%;
-      top: 48%;
-      transform: rotate(-17deg);
+      height: 22px;
+      left: -10%;
+      top: 68%;
+      transform: rotate(12deg);
     }
 
     .road.two {
       width: 26px;
-      height: 100%;
-      left: 45%;
-      top: -8%;
-      transform: rotate(7deg);
+      height: 120%;
+      left: 44%;
+      top: -10%;
+      transform: rotate(8deg);
     }
 
     .road.three {
       width: 70%;
-      height: 18px;
-      right: -6%;
-      top: 22%;
+      height: 16px;
+      right: -4%;
+      top: 30%;
       transform: rotate(-28deg);
-      opacity: 0.92;
     }
 
     .plot {
       position: absolute;
       border-radius: 18px;
-      border: 2px solid rgba(15,127,59,0.18);
-      background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(239,248,242,0.76));
-      box-shadow: 0 14px 26px rgba(17,20,18,0.06);
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(15,127,59,0.10);
     }
 
     .plot.a {
-      width: 112px;
-      height: 92px;
-      left: 14%;
-      top: 16%;
+      width: 90px;
+      height: 74px;
+      left: 12%;
+      top: 22%;
     }
 
     .plot.b {
-      width: 126px;
-      height: 88px;
-      right: 14%;
-      top: 16%;
+      width: 132px;
+      height: 92px;
+      left: 28%;
+      top: 34%;
     }
 
     .plot.c {
-      width: 116px;
-      height: 94px;
-      left: 18%;
-      bottom: 14%;
+      width: 84px;
+      height: 70px;
+      right: 14%;
+      top: 20%;
     }
 
     .plot.d {
-      width: 132px;
-      height: 92px;
-      right: 12%;
-      bottom: 16%;
+      width: 92px;
+      height: 74px;
+      right: 10%;
+      bottom: 12%;
     }
 
     .plot.highlight {
-      border-color: rgba(34,197,94,0.70);
-      background: linear-gradient(180deg, rgba(214,252,227,0.96), rgba(184,244,205,0.92));
-      box-shadow:
-        0 16px 34px rgba(34,197,94,0.18),
-        0 0 0 4px rgba(34,197,94,0.10);
+      background: linear-gradient(180deg, rgba(208,248,220,0.96), rgba(177,238,194,0.94));
+      border: 2px solid rgba(34,197,94,0.65);
+      box-shadow: 0 12px 28px rgba(34,197,94,0.18);
     }
 
     .plot-tag {
       position: absolute;
       top: 10px;
-      left: 10px;
-      padding: 6px 10px;
+      left: 12px;
+      padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.86);
+      background: rgba(255,255,255,0.88);
       color: #14552e;
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       font-weight: 800;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.06);
     }
 
     .pin {
@@ -710,8 +685,8 @@
       height: 22px;
       border-radius: 50% 50% 50% 0;
       transform: rotate(-45deg);
-      background: linear-gradient(135deg, #17ad4f, #25d366);
-      box-shadow: 0 10px 24px rgba(34,197,94,0.28);
+      background: linear-gradient(135deg, #16b34e, #25d366);
+      box-shadow: 0 10px 20px rgba(34,197,94,0.25);
     }
 
     .pin::after {
@@ -726,57 +701,55 @@
     }
 
     .pin.one {
-      left: 34%;
-      top: 32%;
+      left: 42%;
+      top: 56%;
     }
 
     .pin.two {
-      right: 28%;
-      bottom: 28%;
+      display: none;
     }
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin-top: 8px;
     }
 
     .stat-box {
-      padding: 14px;
+      padding: 16px 14px;
       border-radius: 18px;
       background: rgba(255,255,255,0.88);
-      color: #132118;
-      box-shadow: 0 14px 24px rgba(0,0,0,0.08);
+      box-shadow: none;
     }
 
     .stat-box strong {
       display: block;
-      font-size: 1.08rem;
-      line-height: 1.2;
-      margin-bottom: 4px;
+      font-size: 0.98rem;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      color: #102216;
     }
 
     .stat-box span {
-      font-size: 0.86rem;
-      color: #5a655e;
+      font-size: 0.9rem;
+      color: #53625a;
       font-weight: 600;
     }
 
     .stat-box.accent {
-      background: linear-gradient(135deg, #17ad4f, #4be27f);
+      background: linear-gradient(135deg, #1fb955, #43d874);
       color: white;
-      box-shadow: 0 18px 30px rgba(34,197,94,0.26);
     }
 
+    .stat-box.accent strong,
     .stat-box.accent span {
-      color: rgba(255,255,255,0.86);
+      color: white;
     }
 
     .hero-mini-list {
       display: grid;
       gap: 10px;
-      margin: 10px 0 0;
+      margin: 6px 0 0;
       padding: 0;
       list-style: none;
     }
@@ -785,30 +758,30 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      color: rgba(255,255,255,0.92);
       font-size: 0.92rem;
-      color: #dff3e5;
     }
 
     .hero-mini-list li::before {
       content: "";
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #67f49c, #d2a33c);
-      box-shadow: 0 0 12px rgba(103,244,156,0.4);
+      background: #5df091;
       flex-shrink: 0;
     }
 
     .hero-info-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 16px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
       align-items: center;
     }
 
     .hero-info-grid h3 {
-      font-size: 1.45rem;
-      margin-bottom: 8px;
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      line-height: 1.15;
       color: #111512;
       font-family: "Playfair Display", Georgia, serif;
       font-weight: 700;
@@ -819,7 +792,7 @@
       margin: 0;
       color: #5a655e;
       font-size: 0.98rem;
-      line-height: 1.75;
+      line-height: 1.7;
     }
 
     .hero-pill-group {
@@ -832,12 +805,13 @@
     .hero-pill {
       padding: 10px 14px;
       border-radius: 999px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(239,248,242,0.96));
-      border: 1px solid rgba(17,20,18,0.06);
+      background: #f4f7f4;
       color: #14552e;
       font-size: 0.82rem;
       font-weight: 800;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+      white-space: nowrap;
+      border: none;
+      box-shadow: none;
     }
 
     .premium-grid,
@@ -1281,21 +1255,41 @@
       }
 
       .hero-card {
-        min-height: 760px;
+        min-height: auto;
+        padding: 18px;
+        border-radius: 28px;
       }
 
       .hero-dashboard {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+          "map"
+          "stats"
+          "mini"
+          "info";
+        gap: 14px;
       }
 
-      .hero-panel.map {
-        grid-row: auto;
+      .hero-panel.map,
+      .hero-panel.stats,
+      .hero-panel.mini,
+      .hero-panel.info {
+        min-height: auto;
+        padding: 16px;
+        border-radius: 22px;
       }
 
-      .hero-panel.info,
+      .property-map {
+        min-height: 220px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .hero-info-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
       }
 
       .hero-pill-group {
@@ -1347,18 +1341,68 @@
       }
 
       .hero-card {
-        min-height: 720px;
+        padding: 14px;
+        border-radius: 24px;
+      }
+
+      .hero-visual-badge {
+        font-size: 0.84rem;
+        padding: 10px 14px;
+        margin-bottom: 14px;
       }
 
       .hero-dashboard {
-        left: 18px;
-        right: 18px;
-        top: 88px;
-        bottom: 18px;
+        gap: 12px;
+      }
+
+      .hero-panel.map,
+      .hero-panel.stats,
+      .hero-panel.mini,
+      .hero-panel.info {
+        padding: 14px;
+        border-radius: 20px;
       }
 
       .property-map {
-        min-height: 260px;
+        min-height: 190px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-info-grid h3 {
+        font-size: 1.05rem;
+      }
+
+      .hero-info-grid p {
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .hero-pill {
+        font-size: 0.76rem;
+        padding: 9px 12px;
+      }
+
+      .plot.a,
+      .plot.c,
+      .plot.d {
+        display: none;
+      }
+
+      .plot.b {
+        width: 120px;
+        height: 86px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .pin.one {
+        left: 50%;
+        top: 68%;
+        transform: translateX(-50%) rotate(-45deg);
       }
 
       .gallery-card img {
@@ -1447,8 +1491,6 @@
 
           <div class="hero-visual">
             <div class="hero-card">
-              <div class="hero-orb one"></div>
-              <div class="hero-orb two"></div>
               <div class="hero-visual-badge">Premium Property Access</div>
 
               <div class="hero-dashboard">
@@ -1460,21 +1502,14 @@
                     <div class="road two"></div>
                     <div class="road three"></div>
 
-                    <div class="plot a">
-                      <span class="plot-tag">Plot A</span>
-                    </div>
+                    <div class="plot a"></div>
                     <div class="plot b highlight">
                       <span class="plot-tag">Verified Land</span>
                     </div>
-                    <div class="plot c">
-                      <span class="plot-tag">Inspection Area</span>
-                    </div>
-                    <div class="plot d">
-                      <span class="plot-tag">Expansion Zone</span>
-                    </div>
+                    <div class="plot c"></div>
+                    <div class="plot d"></div>
 
                     <div class="pin one"></div>
-                    <div class="pin two"></div>
                   </div>
                 </div>
 
@@ -1483,29 +1518,21 @@
                   <div class="stats-grid">
                     <div class="stat-box accent">
                       <strong>Land Sales</strong>
-                      <span>Clear listing support</span>
+                      <span>Clear listing</span>
                     </div>
                     <div class="stat-box">
                       <strong>Inspection</strong>
                       <span>Guided site visits</span>
                     </div>
-                    <div class="stat-box">
-                      <strong>Guidance</strong>
-                      <span>Direct client support</span>
-                    </div>
-                    <div class="stat-box">
-                      <strong>Trust</strong>
-                      <span>Professional service</span>
-                    </div>
                   </div>
                 </div>
 
                 <div class="hero-panel dark mini">
-                  <div class="panel-label dark">Why Clients Choose Us</div>
+                  <div class="panel-label dark">Why Clients</div>
                   <ul class="hero-mini-list">
-                    <li>Trusted land opportunities</li>
-                    <li>Professional communication</li>
-                    <li>Reliable inquiry support</li>
+                    <li>Trusted Land Access</li>
+                    <li>Professional Support</li>
+                    <li>Responsive Service</li>
                   </ul>
                 </div>
 
@@ -1529,6 +1556,8 @@
               </div>
             </div>
           </div>
+          <!-- hero right end -->
+
         </div>
       </div>
     </section>
